@@ -1,0 +1,1 @@
+# No external dependencies — scanner uses stdlib + powershell.exe via WSL interop.

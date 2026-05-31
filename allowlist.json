@@ -1,0 +1,26 @@
+{
+  "_doc": "Suppress findings that match these rules + conditions. Match fields are AND-ed within an entry. To disable all suppression: scanner.py --no-allowlist.",
+  "suppressions": [
+    {
+      "rule": "browser_spawns_shell",
+      "comment": "McAfee WebAdvisor / WPS use cmd.exe as native-messaging bridge to Edge/Chrome.",
+      "match": {
+        "cmdline_contains": "\\Program Files\\McAfee\\"
+      }
+    },
+    {
+      "rule": "suspicious_path",
+      "comment": "VS Code auto-updater downloads its installer to %TEMP% before running.",
+      "match": {
+        "exe_contains": "\\vscode-stable-user-x64\\CodeSetup-"
+      }
+    },
+    {
+      "rule": "suspicious_path",
+      "comment": "VS Code installer's inner setup runs from is-*.tmp directory.",
+      "match": {
+        "cmdline_contains": "\\vscode-stable-user-x64\\CodeSetup-"
+      }
+    }
+  ]
+}
